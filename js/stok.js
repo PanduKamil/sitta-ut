@@ -1,9 +1,8 @@
-// if (sessionStorage.getItem("namaLogin") === null) {
-//     location.href = "index.html";
-// }
+if (sessionStorage.getItem("namaLogin") === null) {
+    location.href = "index.html";
+}
 
 var tbody = document.getElementById("tbStok");
-// var modalTambah = document.getElementById("modalTambah");
 
 //tampil data stok
 function renderStok() {
@@ -27,6 +26,9 @@ function renderStok() {
     for (var j = 0; j < isi.length; j++) {
         var sel = document.createElement("td");
         sel.textContent = isi[j];
+        if (j === 5 && b.stok < 200) {
+            sel.classList.add("stok-rendah");
+        }
         baris.appendChild(sel);
         }
     tbody.appendChild(baris);
