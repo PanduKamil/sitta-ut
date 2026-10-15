@@ -47,4 +47,27 @@ document.getElementById("tutupTambahStok").addEventListener("click", function() 
     modalTambah.classList.remove("show");
 });
 
+document.getElementById("formStok").addEventListener("submit", function(e) {
+    e.preventDefault();
 
+    var Lokasi = document.getElementById("stkLokasi").value;
+    var kode = document.getElementById("stkKode").value;
+    var nama = document.getElementById("stkNama").value;
+    var jenis = document.getElementById("stkJenis").value;
+    var edisi = document.getElementById("stkEdisi").value;
+    var stok = document.getElementById("stok").value;
+
+    dataBahanAjar.push({
+        kodeLokasi: Lokasi,
+        kodeBarang: kode,
+        namaBarang: nama,
+        jenisBarang: jenis,
+        edisi: edisi,
+        stok: Number(stok),
+        cover: ""
+    });
+
+    renderStok();
+    modalTambah.classList.remove("show");
+    document.getElementById("formStok").reset();
+});
