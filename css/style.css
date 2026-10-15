@@ -1,0 +1,158 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #1e7898;
+    margin: 0;
+}
+
+main {
+    max-width: 24rem;
+    margin: 3rem auto;
+    background: #2596be;
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 0.6rem;
+    box-sizing: border-box;
+}
+
+select {
+    width: 100%;
+    padding: 0.6rem;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.7rem;
+    background: #f0b428;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button[id="tutupDaftar"] {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.7rem;
+    background: #ffff;
+    font-weight: bold;
+    cursor: pointer;
+}
+button[id="tutupLupa"] {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.7rem;
+    background: #ffff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.link {
+    background: none;
+    border: 0;
+    color: #1d4f91;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.box {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 22rem;
+}
+
+.msg {
+    color: #c0392b;
+    font-size: 0.9rem;
+    margin:  0.2rem 0 0;
+    min-height: 1.1rem;
+}
+
+.nav {
+    background: #143a6b;
+    display: flex;
+}
+
+.nav a,
+.nav button {
+    color: white;
+    background: none;
+    border: 0;
+    padding: 0.9rem 1rem;
+    font: inherit;
+    text-decoration: dashed;
+    cursor: pointer;
+}
+
+.nav a:hover,
+.nav button:hover {
+    background: #1d4f91;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-isi {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 16rem;
+    background: white;
+}
+
+.dropdown-isi a {
+    display: block;
+    color: #1b2a3a;
+}
+
+.dropdown:hover .dropdown-isi,
+.dropdown:focus-within .dropdown-isi{
+    display: block;
+}
+
+main.lebar {
+    max-width: 62rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, tb {
+    padding: 0.6rem;
+    border-bottom: 1px solid #d5dbe4;
+    text-align: left;
+}
+
+td img {
+    width: 48px;
+    height: 64px;
+    object-fit: cover;
+}

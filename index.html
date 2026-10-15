@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login - SITTA</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main>
+        <h1>Selamat Datang</h1>
+        <form id="formLogin">
+            <label for="email">Email</label>
+            <input id="email" type="email">
+            <p class="msg" id="errEmail"></p>
+
+            <label for="password">Password</label>
+            <input id="password" type="password">
+            <p class="msg" id="errPassword"></p>
+
+            <button type="submit">Login</button>
+        </form>
+        <button type="button" class="link" id="btnLupa">Lupa password?</button>
+        <button type="button" class="link" id="btnDaftar">Belum punya akun? Daftar</button>
+    </main>
+    <div class="modal" id="modalLupa">
+        <div class="box">
+            <h2>Lupa password</h2>
+            <p>Fitur dalam tahap develop</p>
+            <button type="button" id="tutupLupa">Tutup</button>
+        </div>
+    </div>
+
+    <div class="modal" id="modalDaftar">
+        <div class="box">
+            <h2>Daftar Akun</h2>
+            <form id="formDaftar">
+            <label for="dfNama">Nama</label>
+            <input id="dfNama" type="text">
+            <p class="msg" id="errDfNama"></p>
+
+            <label for="dfEmail">Email</label>
+            <input id="dfEmail" type="email">
+            <p class="msg" id="errDfEmail"></p>
+
+            <label for="dfPassword">Password</label>
+            <input id="dfPassword" type="password">
+            <p class="msg" id="errDfPassword"></p>
+
+            <label for="dfLokasi">Lokasi</label>
+            <select id="dfLokasi">
+                <option value="UPBJJ Jakarta">UPBJJ Jakarta</option>
+                <option value="UPBJJ Makassar">UPBJJ Makassar</option>
+                <option value="UPBJJ Bandung">UPBJJ Bandung</option>
+            </select>
+
+            <button type="submit">Daftar</button>
+            <button type="button" id="tutupDaftar">Tutup</button>
+        </form>
+        </div>
+    </div>
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
