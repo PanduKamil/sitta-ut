@@ -42,23 +42,74 @@ document.getElementById("btnTambah").addEventListener("click", function() {
 
 document.getElementById("btnBatal").addEventListener("click", function() {
     modalTambah.classList.remove("show");
+    bersihkanError();
+    document.getElementById("formStok").reset();
 });
 document.getElementById("tutupTambahStok").addEventListener("click", function() {
     modalTambah.classList.remove("show");
+    bersihkanError();
+    document.getElementById("formStok").reset();
 });
+
+
+
+function bersihkanError() {
+    document.getElementById("errStkLokasi").textContent = "";
+    document.getElementById("errStkKode").textContent = "";
+    document.getElementById("errStkNama").textContent = "";
+    document.getElementById("errStkEdisi").textContent = "";
+    document.getElementById("errStok").textContent = "";
+}   
 
 document.getElementById("formStok").addEventListener("submit", function(e) {
     e.preventDefault();
 
-    var Lokasi = document.getElementById("stkLokasi").value;
-    var kode = document.getElementById("stkKode").value;
-    var nama = document.getElementById("stkNama").value;
-    var jenis = document.getElementById("stkJenis").value;
-    var edisi = document.getElementById("stkEdisi").value;
-    var stok = document.getElementById("stok").value;
+var lokasi = document.getElementById("stkLokasi").value.trim();
+var kode = document.getElementById("stkKode").value.trim();
+var nama = document.getElementById("stkNama").value.trim();
+var jenis = document.getElementById("stkJenis").value;
+var edisi = document.getElementById("stkEdisi").value.trim();
+var stok = document.getElementById("stok").value;
+var valid = true;
 
-    dataBahanAjar.push({
-        kodeLokasi: Lokasi,
+bersihkanError();
+
+if (lokasi === "") {
+    document.getElementById("errStkLokasi").textContent = "Lokasi harus diisi.";
+    valid = false;
+}
+
+if (kode === "") {
+    document.getElementById("errStkKode").textContent = "Kode harus diisi.";
+    valid = false;
+}else {
+    for (var i = 0; i < dataBahanAjar.length; i++) {
+        if (dataBahanAjar[i].kodeBarang.toLowerCase() === kode.toLowerCase()) {
+            document.getElementById("errStkKode").textContent = "Kode sudah ada.";
+            valid = false;
+        }
+    }
+}
+
+if (nama === "") {
+    document.getElementById("errStkNama").textContent = "Nama harus diisi.";
+    valid = false;
+}
+if(edisi === "" || isNaN(edisi) || Number(edisi) < 1   ) {
+    document.getElementById("errStkEdisi").textContent = "Edisi harus diisi dengan angka.";
+    valid = false;
+}
+if (stok === "" ||  Number(stok) < 0) {
+    document.getElementById("errStok").textContent = "Stok harus diisi dengan angka >= 0.";
+    valid = false;
+}
+
+if (valid === false) {
+    return;
+}
+
+dataBahanAjar.push({    
+        kodeLokasi: lokasi,
         kodeBarang: kode,
         namaBarang: nama,
         jenisBarang: jenis,
@@ -71,3 +122,5 @@ document.getElementById("formStok").addEventListener("submit", function(e) {
     modalTambah.classList.remove("show");
     document.getElementById("formStok").reset();
 });
+
+
