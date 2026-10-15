@@ -55,6 +55,15 @@ button[id="tutupLupa"] {
     font-weight: bold;
     cursor: pointer;
 }
+button[id="btnBatal"] {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.7rem;
+    background: #ffff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 
 .link {
     background: none;
@@ -156,3 +165,11 @@ td img {
     height: 64px;
     object-fit: cover;
 }
+
+span {
+    display: inline-block;
+    width: 100%;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+

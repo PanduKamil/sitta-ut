@@ -1,6 +1,15 @@
-var tbody = document.getElementById("tbStok")
+// if (sessionStorage.getItem("namaLogin") === null) {
+//     location.href = "index.html";
+// }
 
-for (var i = 0; i < dataBahanAjar.length; i++) {
+var tbody = document.getElementById("tbStok");
+// var modalTambah = document.getElementById("modalTambah");
+
+//tampil data stok
+function renderStok() {
+    tbody.innerHTML = "";
+
+    for (var i = 0; i < dataBahanAjar.length; i++) {
     var b = dataBahanAjar[i];
     
     var baris = document.createElement("tr");
@@ -19,6 +28,23 @@ for (var i = 0; i < dataBahanAjar.length; i++) {
         var sel = document.createElement("td");
         sel.textContent = isi[j];
         baris.appendChild(sel);
-    }
+        }
     tbody.appendChild(baris);
+    }
 }
+renderStok();
+
+//modal tambah stok
+var modalTambah = document.getElementById("modalTambah");
+document.getElementById("btnTambah").addEventListener("click", function() {
+    modalTambah.classList.add("show");
+});
+
+document.getElementById("btnBatal").addEventListener("click", function() {
+    modalTambah.classList.remove("show");
+});
+document.getElementById("tutupTambahStok").addEventListener("click", function() {
+    modalTambah.classList.remove("show");
+});
+
+
