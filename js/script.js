@@ -15,19 +15,14 @@ form.addEventListener("submit", function (e) {
         valid = false;
     }
 
-    if (password < 6) {
-        document.getElementById("errPassword").textContent = "Password minimal 6 karakter.";
+    if (password === "") {
+        document.getElementById("errPassword").textContent = "Password harus diisi.";
         valid = false;
     }
 
     if (valid === false) {
         return;
     }
-    // if (email === "" || password === "") {
-    //     alert("Email dan password wajid diisi");
-    //     return;
-    // }
-
     var user = null;
     for (var i = 0; i < dataPengguna.length; i++) {
         if (dataPengguna[i].email === email && dataPengguna[i].password === password) {
@@ -52,8 +47,41 @@ document.getElementById("btnLupa").addEventListener("click", function () {
    modalLupa.classList.add("show");
 });
 
+function bersihkanLupa() {
+    document.getElementById("formLupa").reset();
+    document.getElementById("errLupaEmail").textContent = "";
+}
+
 document.getElementById("tutupLupa").addEventListener("click", function () {
-   modalLupa.classList.remove("show");
+    modalLupa.classList.remove("show");
+    bersihkanLupa();
+});
+
+document.getElementById("formLupa").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var email = document.getElementById("lupaEmail").value.trim().toLowerCase();
+    document.getElementById("errLupaEmail").textContent = "";
+
+    if (email === "") {
+        document.getElementById("errLupaEmail").textContent = "Email wajib diisi.";
+        return;
+    }
+
+    var ada = false;
+    for (var i = 0; i < dataPengguna.length; i++) {
+        if (dataPengguna[i].email === email) {
+            ada = true;
+        }
+    }
+
+    if (ada === false) {
+        document.getElementById("errLupaEmail").textContent = "Email tidak terdaftar.";
+        return;
+    }
+
+    alert("Tautan reset password telah dikirim ke " + email + " (simulasi).");
+    modalLupa.classList.remove("show");
+    bersihkanLupa();
 });
 
 // Pop-up daftar
@@ -70,7 +98,7 @@ document.getElementById("tutupDaftar").addEventListener("click", function () {
 
 //function bersihkandaftar
 function bersihkanDaftar() {
-    document.getElementById("formDaftar").reset;
+    document.getElementById("formDaftar").reset();
     document.getElementById("errDfNama").textContent = "";
     document.getElementById("errDfEmail").textContent = "";
     document.getElementById("errDfPassword").textContent = "";

@@ -24,10 +24,18 @@
         <button type="button" class="link" id="btnDaftar">Belum punya akun? Daftar</button>
     </main>
     <div class="modal" id="modalLupa">
-        <div class="box">
-            <h2>Lupa password</h2>
-            <p>Fitur dalam tahap develop</p>
-            <button type="button" id="tutupLupa">Tutup</button>
+        <div class="modal" id="modalLupa">
+            <div class="box">
+                <h2>Lupa password</h2>
+                <form id="formLupa" novalidate>
+                    <label for="lupaEmail">Email terdaftar</label>
+                    <input id="lupaEmail" type="email">
+                    <p class="msg" id="errLupaEmail"></p>
+
+                    <button type="submit">Kirim tautan reset</button>
+                    <button type="button" id="tutupLupa">Batal</button>
+                </form>
+            </div>
         </div>
     </div>
 
