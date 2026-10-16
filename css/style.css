@@ -173,3 +173,15 @@ span {
     cursor: pointer;
 }
 
+dl {
+    display: grid;
+    grid-template-columns: 10rem 1fr;
+    gap: 0.4rem 1rem ;
+}
+
+dt {
+    font-weight: bold;
+}
+dd {
+    margin: 0;
+}

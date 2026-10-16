@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Tracking Pengiriman - SITTA</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+            <main class="lebar">
+                <a href="dashboard.html" style="display: inline-block; margin-bottom: 1rem;">&larr; kembali ke Dashboard</a>
+                <h1>Tracking Pengiriman</h1>
+
+                <form id="formCari" novalidate>
+                    <label for="nomorDO">Nomor Delivery Order:</label>
+                    <input type="text" id="nomorDO" placeholder="Contoh: 2023001234" >
+                    <p class="msg" id="errNomorDO"></p>
+                    <button type="submit">Lacak</button>
+                </form>
+
+                <section id="hasil" hidden>
+                    <h2 id="rNama"></h2>
+                    <p id="rStatus"></p>
+                    <dl>
+                        <dt>Ekspedisi:</dt>
+                        <dd id="rEkspedisi"></dd>
+                        <dt>Tanggal Kirim:</dt>
+                        <dd id="rTanggal"></dd>
+                        <dt>Jenis Paket:</dt>
+                        <dd id="rJenis"></dd>
+                        <dt>Total Pembayaran:</dt>
+                        <dd id="rTotal"></dd>
+                    </dl>
+                </section>
+            </main>
+            <script src="js/data.js"></script>
+            <script src="js/tracking.js"></script>
+    </body>
+</html>
