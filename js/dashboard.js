@@ -27,33 +27,29 @@ document.getElementById("keluar").addEventListener("click", function () {
 
 var modalPanel = document.getElementById("modalPanel");
 
-function tampilRekap() {
-    document.getElementById("panelJudul").textContent = "Rekap Bahan Ajar";
+function isiPanel(judulModal, kolomJudul, dataBaris){
+    document.getElementById("panelJudul").textContent = judulModal;
 
     var kepala = document.getElementById("panelHead");
     var isi = document.getElementById("panelBody");
     kepala.textContent = "";    
     isi.textContent = "";
 
-    //baris judul kolom
-    var barisJudul = document.createElement("tr");
-    var judul = ["kode", "Nama Bahan Ajar", "jenis", "Stok"];
-
-    for (var i = 0; i < judul.length; i++) {
+        //baris judul kolom
+    var barisJudul = document.createElement("tr")
+    for (var i = 0; i < kolomJudul.length; i++) {
         var th = document.createElement("th");
-        th.textContent = judul[i];
+        th.textContent = kolomJudul[i];
         barisJudul.appendChild(th);
     }
     kepala.appendChild(barisJudul);
 
     //baris isi data
-    for (var i = 0; i < dataBahanAjar.length; i++) {
-        var b = dataBahanAjar[i];
+    for (var i = 0; i < dataBaris.length; i++) {
         var baris = document.createElement("tr");
-        var kolom = [b.kodeBarang, b.namaBarang, b.jenisBarang, b.stok];
-        for (var j = 0; j < kolom.length; j++) {
+        for (var j = 0; j < dataBaris[i].length; j++) {
             var td = document.createElement("td");
-            td.textContent = kolom[j];
+            td.textContent = dataBaris[i][j];
             baris.appendChild(td);
         }
         isi.appendChild(baris);
@@ -61,12 +57,50 @@ function tampilRekap() {
 
     modalPanel.classList.add("show");
 }
+function tampilRekap() {
+    var data = [];
+    for (var i = 0; i < dataBahanAjar.length; i++) {
+        var b = dataBahanAjar[i];
+        data.push([b.kodeBarang, b.namaBarang, b.jenisBarang, b.stok]);
+    }
+    isiPanel("Rekap Bahan Ajar", ["Kode", "Nama Bahan Ajar", "Jenis", "Stok"], data);
+}
 
-document.getElementById("linkRekap").addEventListener("click", function (event) {
-    event.preventDefault();
+function tampilMonitoring() {
+    var data = [];
+    for (var nomor in dataTracking) {
+        var t = dataTracking[nomor];
+        data.push([nomor, t.nama, t.ekspedisi, t.status]);
+    }
+    isiPanel("Monitoring Progress DO Bahan Ajar", ["No. DO", "Nama", "Ekspedisi", "Status"], data);
+}
+
+function tampilHistori() {
+    var data = [];
+    for (var nomor in dataTracking) {
+        var t = dataTracking[nomor];
+        data.push([nomor, t.nama, t.tanggalKirim, t.total]);
+    }
+    isiPanel("Histori Transaksi Bahan Ajar", ["No. DO", "Nama", "Tanggal Kirim", "Total"], data);
+}
+
+document.getElementById("linkRekap").addEventListener("click", function (e) {
+    e.preventDefault();
     tampilRekap();
 });
+document.getElementById("linkMonitoring").addEventListener("click", function (e) {
+    e.preventDefault();
+    tampilMonitoring();
+});
+document.getElementById("linkHistori").addEventListener("click", function (e) {
+    e.preventDefault();
+    tampilHistori();
+});
 
-document.getElementById("tutupPanel").addEventListener("click", function (event) {
+document.getElementById("tutupPanel").addEventListener("click", function () {
+    modalPanel.classList.remove("show");
+});
+
+document.getElementById("silangPanel").addEventListener("click", function () {
     modalPanel.classList.remove("show");
 });

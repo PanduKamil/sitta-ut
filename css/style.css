@@ -113,7 +113,7 @@ button[id="btnBatal"] {
     border: 0;
     padding: 0.9rem 1rem;
     font: inherit;
-    text-decoration: dashed;
+    text-decoration: none;
     cursor: pointer;
 }
 
@@ -154,7 +154,7 @@ table {
     border-collapse: collapse;
 }
 
-th, tb {
+th, td {
     padding: 0.6rem;
     border-bottom: 1px solid #d5dbe4;
     text-align: left;
