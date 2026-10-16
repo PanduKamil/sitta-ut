@@ -12,13 +12,13 @@
             <a href="stok.html">Informasi Bahan Ajar</a>
             <a href="tracking.html">Tracking pengiriman</a>
             <div class="dropdown">
-                <button type="button">Laporan &#9662</button>
+                <button type="button">Laporan &#9662;</button>
                 <div class="dropdown-isi">
-                        <a href="#">Monitoring Proses DO Bahan Ajar</a>
-                        <a href="#">Rekap Bahan Ajar</a>
+                        <a href="#" id="linkMonitoring">Monitoring Proses DO Bahan Ajar</a>
+                        <a href="#" id="linkRekap">Rekap Bahan Ajar</a>
                 </div>
             </div>
-            <a href="#">Histori Transaksi Bahan Ajar</a>
+            <a href="#" id="linkHistori">Histori Transaksi Bahan Ajar</a>
         </nav>
     </header>
     <main>
@@ -27,6 +27,18 @@
         <p id="peran"></p>
         <button type="button" id="keluar">Keluar</button>
     </main>
+    <div id="modalPanel" class="modal">
+        <div class="box lebar-modal">
+            <span class="tutup">&times;</span>
+            <h2 id="panelJudul"></h2> 
+            <table>
+                <thead id="panelHead"></thead>
+                <tbody id="panelBody"></tbody>
+            </table>
+            <button type="button" id="tutupPanel">Tutup</button>   
+        </div>
+    </div>
+    <script src="js/data.js"></script>
     <script src="js/dashboard.js"></script>
 </body>    
 </html>

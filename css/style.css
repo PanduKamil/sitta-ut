@@ -185,3 +185,8 @@ dt {
 dd {
     margin: 0;
 }
+.box.lebar-modal {
+  max-width: 44rem;
+  max-height: 85vh;
+  overflow: auto;
+}
