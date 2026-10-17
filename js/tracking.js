@@ -21,7 +21,7 @@ document.getElementById("formCari").addEventListener("submit", function (e) {
 
     if (d === undefined) {
         document.getElementById("errNomorDO").textContent = "Nomor DO tidak ditemukan.";
-        alert("Data pengirim untuk nomor" + nomor + " tidak ditemukan.");
+        alert("Data pengirim untuk nomor " + nomor + " tidak ditemukan.");
         return;
     }
 
