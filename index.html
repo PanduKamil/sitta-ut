@@ -6,7 +6,7 @@
     <title>Login - SITTA</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="halaman-login"></body>
     <main>
         <h1>Selamat Datang</h1>
         <form id="formLogin">
@@ -17,25 +17,22 @@
             <label for="password">Password</label>
             <input id="password" type="password">
             <p class="msg" id="errPassword"></p>
-
             <button type="submit">Login</button>
         </form>
         <button type="button" class="link" id="btnLupa">Lupa password?</button>
         <button type="button" class="link" id="btnDaftar">Belum punya akun? Daftar</button>
     </main>
     <div class="modal" id="modalLupa">
-        <div class="modal" id="modalLupa">
-            <div class="box">
-                <h2>Lupa password</h2>
-                <form id="formLupa" novalidate>
-                    <label for="lupaEmail">Email terdaftar</label>
-                    <input id="lupaEmail" type="email">
-                    <p class="msg" id="errLupaEmail"></p>
+        <div class="box">
+            <h2>Lupa password</h2>
+            <form id="formLupa" novalidate>
+                <label for="lupaEmail">Email terdaftar</label>
+                <input id="lupaEmail" type="email">
+                <p class="msg" id="errLupaEmail"></p>
 
-                    <button type="submit">Kirim tautan reset</button>
-                    <button type="button" id="tutupLupa">Batal</button>
-                </form>
-            </div>
+                <button type="submit">Kirim tautan reset</button>
+                <button type="button" id="tutupLupa">Batal</button>
+            </form>
         </div>
     </div>
 
